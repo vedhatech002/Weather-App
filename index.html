@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./public/img/weather-cloudy.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="./src/css/main.css" />
@@ -11,11 +15,13 @@
     <main class="bg-[#50989f] p-6 max-w-md mx-auto mt-16 rounded-2xl">
       <!-- searchbar -->
 
-      <form class="flex items-center gap-3">
+      <form name="cityInput" class="flex items-center gap-3">
         <input
           class="outline-none border-none rounded-2xl px-8 py-[6px] text-lg w-full placeholder:text-center placeholder:text-lg"
           type="text"
+          name="city"
           placeholder="enter city name"
+          required
         />
         <button class="bg-white p-2 rounded-full">
           <svg
@@ -38,26 +44,21 @@
         </button>
       </form>
       <!-- result page -->
-      <div class="pt-12">
+      <div class="pt-12 hidden" id="result">
         <div class="flex flex-col items-center gap-8">
-          <img
-            id="weather-img"
-            src="./public/img/weather-cloudy.png"
-            alt="weather-img"
-            width="100px"
-          />
-          <h1 id="temprature" class="text-6xl text-white font-bold">25 ° C</h1>
+          <img id="weather-img" src="" alt="weather-img" width="100px" />
+          <h1 id="temprature" class="text-6xl text-white font-bold">25 °C</h1>
           <h2 id="cityName" class="text-white text-4xl font-semibold">
             Vedaranyam
           </h2>
         </div>
-        <div class="flex items-center justify-between mt-10 text-white">
+        <div class="flex items-center justify-between mt-16 text-white">
           <!-- humidity -->
 
           <div class="flex items-center">
             <img src="./public/img/humidity.png" alt="humidity" width="40px" />
             <div>
-              <h3 class="text-2xl font-semibold">64%</h3>
+              <h3 class="text-2xl font-semibold" id="humidity">64%</h3>
               <p>Humidity</p>
             </div>
           </div>
@@ -65,7 +66,7 @@
           <div class="flex items-center gap-2">
             <img src="./public/img/wind.png" alt="wind" width="40px" />
             <div>
-              <h3 class="text-2xl font-semibold">7.72 Km/h</h3>
+              <h3 class="text-2xl font-semibold" id="wind-speed">7.72 Km/h</h3>
               <p>wind speed</p>
             </div>
           </div>
